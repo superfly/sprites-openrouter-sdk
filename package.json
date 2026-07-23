@@ -1,0 +1,54 @@
+{
+  "name": "@fly/sprites-openrouter",
+  "version": "0.1.0",
+  "description": "OpenRouter Agent SDK tools backed by persistent Fly.io Sprites",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/unit/*.test.ts",
+    "test:acceptance": "node --import tsx ./node_modules/@cucumber/cucumber/bin/cucumber.js 'tests/acceptance/*.feature' --import 'tests/acceptance/**/*.ts' --tags '@fake and not @later'",
+    "test:live": "node --import tsx --test tests/live/*.test.ts",
+    "package:check": "npm pack --dry-run --cache .npm-cache",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "@fly/sprites": "^0.1.0",
+    "@openrouter/agent": "^0.7.2"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@fly/sprites": "^0.1.0",
+    "@openrouter/agent": "^0.7.2",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superfly/sprites-openrouter-sdk.git"
+  },
+  "license": "MIT"
+}
