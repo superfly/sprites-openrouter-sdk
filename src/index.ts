@@ -1,3 +1,5 @@
+import "./client-signals.js";
+
 export { DEFAULT_LIMITS } from "./limits.js";
 export { createSpriteTools } from "./tools.js";
 export { createSpriteWorkspace } from "./workspace.js";
