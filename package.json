@@ -26,6 +26,7 @@
     "test:acceptance": "node --import tsx ./node_modules/@cucumber/cucumber/bin/cucumber.js 'tests/acceptance/*.feature' --import 'tests/acceptance/**/*.ts' --tags '@fake and not @later'",
     "test:live": "node --import tsx --test tests/live/*.test.ts",
     "package:check": "npm pack --dry-run --cache .npm-cache",
+    "package:smoke": "node scripts/check-package.mjs",
     "prepack": "npm run build"
   },
   "peerDependencies": {
