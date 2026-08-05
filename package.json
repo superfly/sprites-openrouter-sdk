@@ -30,7 +30,7 @@
     "prepack": "npm run build"
   },
   "peerDependencies": {
-    "@fly/sprites": "^0.1.0",
+    "@fly/sprites": "^0.2.0",
     "@openrouter/agent": "^0.7.2"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
-    "@fly/sprites": "^0.1.0",
+    "@fly/sprites": "^0.2.0",
     "@openrouter/agent": "^0.7.2",
     "@types/node": "^24.0.0",
     "tsx": "^4.20.0",

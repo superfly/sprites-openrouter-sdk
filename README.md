@@ -22,6 +22,16 @@ npm install @fly/sprites-openrouter @fly/sprites @openrouter/agent
 
 The package targets Node.js 24 or later and uses ESM.
 
+## Usage attribution
+
+When imported, this adapter declares `FLY_INVOKED_BY=openrouter` if the
+variable is not already set. Client-signals-aware versions of the foundational
+Sprites SDK then attach the coarse, privacy-safe
+[`client-signals`](https://github.com/superfly/client-signals) marker to
+Sprites API requests. An explicit declaration from your application or an
+outer agent harness is never overwritten. The marker is advisory analytics
+only and is never used for access control, gating, or rate-limiting.
+
 ## Usage
 
 ```ts
