@@ -1,7 +1,7 @@
 # Sprites for OpenRouter Agent SDK
 
-> **Experimental:** This package is under active development in an internal
-> repository. Its API and behavior may change before the first public release.
+> **Experimental:** This package is under active development. Its API and
+> behavior may change before the first stable release.
 
 This repository, `superfly/sprites-openrouter-sdk`, contains the OpenRouter
 Agent SDK integration built on the
@@ -82,6 +82,9 @@ const tools = workspace.tools({
 
 - [API RFC](docs/rfcs/0001-sprite-workspaces-for-openrouter.md)
 - [Acceptance test specification](tests/acceptance/README.md)
+- [Contributing guide](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Release and versioning policy](RELEASING.md)
 
 The RFC defines the public contract. The Cucumber acceptance suite runs against
 a deterministic fake Sprite, with separate credential-gated live tests for the

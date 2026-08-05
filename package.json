@@ -2,6 +2,20 @@
   "name": "@fly/sprites-openrouter",
   "version": "0.1.0",
   "description": "OpenRouter Agent SDK tools backed by persistent Fly.io Sprites",
+  "keywords": [
+    "fly.io",
+    "sprites",
+    "openrouter",
+    "agents",
+    "tools",
+    "sandbox",
+    "remote-execution"
+  ],
+  "author": "Fly.io",
+  "homepage": "https://github.com/superfly/sprites-openrouter-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/superfly/sprites-openrouter-sdk/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,13 +28,17 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "RELEASING.md"
   ],
   "engines": {
     "node": ">=24.0.0"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "clean": "node scripts/clean.mjs",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test tests/unit/*.test.ts",
     "test:acceptance": "node --import tsx ./node_modules/@cucumber/cucumber/bin/cucumber.js 'tests/acceptance/*.feature' --import 'tests/acceptance/**/*.ts' --tags '@fake and not @later'",
