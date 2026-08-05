@@ -1,26 +1,33 @@
 # Sprites for OpenRouter Agent SDK
 
-> **Experimental:** This package is under active development. Its API and
-> behavior may change before the first stable release.
+> **Experimental:** This integration is under active development and is not
+> published to npm. Its API and behavior may change before the first stable
+> release.
 
 This repository, `superfly/sprites-openrouter-sdk`, contains the OpenRouter
 Agent SDK integration built on the
 [`superfly/sprites-js`](https://github.com/superfly/sprites-js) JavaScript SDK.
-That SDK is published to npm as `@fly/sprites`; this package is
-`@fly/sprites-openrouter`.
+That SDK is published to npm as `@fly/sprites`. This integration is currently
+available only from source; `@fly/sprites-openrouter` is the proposed name for
+a future npm release. `npm install @fly/sprites-openrouter` will fail until that
+release exists.
 
-| Role | GitHub repository | npm package |
+| Role | GitHub repository | Availability |
 |---|---|---|
-| Foundational JavaScript SDK | [`superfly/sprites-js`](https://github.com/superfly/sprites-js) | `@fly/sprites` |
-| OpenRouter integration | `superfly/sprites-openrouter-sdk` | `@fly/sprites-openrouter` |
+| Foundational JavaScript SDK | [`superfly/sprites-js`](https://github.com/superfly/sprites-js) | npm: `@fly/sprites` |
+| OpenRouter integration | `superfly/sprites-openrouter-sdk` | Source only; not published to npm |
 
-## Install
+## Try from source
+
+The repository requires Node.js 24 or later and uses ESM. Clone and build it
+locally:
 
 ```sh
-npm install @fly/sprites-openrouter @fly/sprites @openrouter/agent
+git clone https://github.com/superfly/sprites-openrouter-sdk.git
+cd sprites-openrouter-sdk
+npm ci
+npm run build
 ```
-
-The package targets Node.js 24 or later and uses ESM.
 
 ## Usage attribution
 
@@ -34,10 +41,13 @@ only and is never used for access control, gating, or rate-limiting.
 
 ## Usage
 
+After building the repository, an example run from its root can import the
+adapter from `dist`:
+
 ```ts
 import { SpritesClient } from '@fly/sprites';
 import { OpenRouter, stepCountIs } from '@openrouter/agent';
-import { createSpriteWorkspace } from '@fly/sprites-openrouter';
+import { createSpriteWorkspace } from './dist/index.js';
 
 const sprites = new SpritesClient(process.env.SPRITES_TOKEN!);
 const openrouter = new OpenRouter({ apiKey: process.env.OPENROUTER_API_KEY! });
@@ -87,8 +97,8 @@ const tools = workspace.tools({
 - [Release and versioning policy](RELEASING.md)
 
 The RFC defines the public contract. The Cucumber acceptance suite runs against
-a deterministic fake Sprite, with separate credential-gated live tests for the
-released SDKs.
+a deterministic fake Sprite, with separate credential-gated tests against real
+Sprites and OpenRouter services.
 
 ## Development
 
